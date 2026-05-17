@@ -12,36 +12,40 @@ export function StickyMobileCTA() {
   const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
-    // Reveal once the hero scrolls fully out of view.
+    // Show the CTA once the user has scrolled past the hero. The sentinel
+    // sits at the bottom of the Hero; we read its position on every scroll.
+    // (IntersectionObserver was tempting but doesn't fire when the user
+    // jumps past the sentinel via an anchor scroll — the intersection state
+    // never transitions, so the callback is silent.)
     const heroSentinel = document.getElementById("hero-end-sentinel");
-    if (!heroSentinel) {
-      // Fallback: show after 600px scroll.
-      const onScroll = () => setVisible(window.scrollY > 600);
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-      return () => window.removeEventListener("scroll", onScroll);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { rootMargin: "0px 0px -100% 0px" },
-    );
-    observer.observe(heroSentinel);
-    return () => observer.disconnect();
+    const update = () => {
+      if (heroSentinel) {
+        setVisible(heroSentinel.getBoundingClientRect().top < 0);
+      } else {
+        setVisible(window.scrollY > 600);
+      }
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   return (
     <div
       aria-hidden={!visible}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 md:hidden",
+        "fixed inset-x-0 bottom-0 z-50 lg:hidden",
         "border-t border-ink-100 bg-cream-50/95 backdrop-blur",
         "transition-transform duration-200",
         "pb-[env(safe-area-inset-bottom)]",
         visible ? "translate-y-0" : "translate-y-full",
       )}
     >
-      <div className="flex items-center gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-screen-sm items-center gap-3 px-4 py-3">
         <Button
           asChild
           size="md"

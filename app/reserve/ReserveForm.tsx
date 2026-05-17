@@ -79,7 +79,7 @@ export function ReserveForm({ initialTier = "witness" }: Props) {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="rounded-lg border border-ink-100 bg-white p-7 sm:p-10 shadow-sm"
+      className="rounded-lg border border-ink-100 bg-white p-5 sm:p-7 lg:p-10 shadow-sm"
     >
       <fieldset className="space-y-2">
         <legend className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500">
@@ -154,12 +154,12 @@ export function ReserveForm({ initialTier = "witness" }: Props) {
         </p>
       )}
 
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <Button
           type="submit"
           size="lg"
           disabled={status === "submitting"}
-          className="sm:flex-shrink-0"
+          className="w-full sm:w-auto sm:flex-shrink-0"
         >
           {status === "submitting" ? "Sending…" : "Send my reservation"}
         </Button>

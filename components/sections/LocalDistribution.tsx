@@ -10,7 +10,7 @@ export function LocalDistribution() {
   return (
     <Section surface="primary-deep" spacing="loose">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16 lg:items-center">
+        <div className="grid gap-10 md:grid-cols-[2fr_3fr] md:gap-12 md:items-center lg:gap-16">
           <div className="flex flex-col gap-6">
             <h2 className="font-serif text-display-lg font-normal text-cream-50 text-balance">
               The portion that stays here.
@@ -62,7 +62,7 @@ export function LocalDistribution() {
           {/* PHOTO NEEDED: a real moment of meat being received by a Canadian
               family in their home or at the door. Faces may be obscured. Warm
               interior light. Dignity, not pity. */}
-          <div className="relative aspect-[4/5] lg:aspect-[5/4] w-full overflow-hidden rounded-lg bg-primary-700">
+          <div className="relative aspect-[3/2] md:aspect-[4/5] lg:aspect-[5/4] w-full overflow-hidden rounded-lg bg-primary-700">
             <div
               className="absolute inset-0 grid place-items-center text-center px-8"
               aria-hidden="true"

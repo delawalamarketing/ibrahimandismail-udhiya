@@ -25,22 +25,24 @@ export function FinalCTA() {
             The earlier you reserve, the better your slot.
           </p>
 
-          <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+          <div className="mt-2 flex w-full max-w-[420px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-5">
             <Button
               asChild
               size="lg"
+              className="w-full sm:w-auto"
               onClick={() => track("cta_reserve_click", { location: "final" })}
             >
               <Link href="#pricing">Reserve your qurbaani</Link>
             </Button>
             <WhatsAppButton
               location="final"
+              className="w-full sm:w-auto"
               message={`Assalamu alaikum, I'd like to reserve a qurbaani for ${site.eidDateLabel}.`}
             />
             <a
               href={telLink}
               onClick={() => track("phone_click", { location: "final" })}
-              className="inline-flex items-center gap-2 h-11 px-2 text-body text-ink-700 hover:text-ink-900"
+              className="inline-flex items-center justify-center gap-2 h-11 text-body text-ink-700 hover:text-ink-900"
             >
               <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
               {env.phoneDisplay}

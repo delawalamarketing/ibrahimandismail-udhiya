@@ -11,10 +11,11 @@ const required = (key: string, fallback?: string): string => {
 
 export const env = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahimandismail.ca",
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+14165550100",
-  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "(416) 555-0100",
-  phoneTel: process.env.NEXT_PUBLIC_PHONE_TEL || "+14165550100",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@ibrahimandismail.ca",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+14165050358",
+  phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "(416) 505-0358",
+  phoneTel: process.env.NEXT_PUBLIC_PHONE_TEL || "+14165050358",
+  contactEmail:
+    process.env.NEXT_PUBLIC_CONTACT_EMAIL || "team.ibrahimandismail@gmail.com",
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID || "",
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "",
 };

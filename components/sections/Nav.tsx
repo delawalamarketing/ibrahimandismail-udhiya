@@ -29,9 +29,13 @@ export function Nav() {
           : "border-b border-transparent",
       )}
     >
-      <div className="mx-auto flex h-[60px] md:h-[72px] w-full max-w-[1200px] items-center justify-between px-5 sm:px-6 lg:px-8">
-        <Link href="/" className="flex flex-col leading-tight" aria-label={`${site.name} home`}>
-          <span className="font-serif text-[20px] md:text-[22px] font-medium text-ink-900">
+      <div className="mx-auto flex h-[60px] md:h-[72px] w-full max-w-[1200px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="flex flex-col leading-tight min-w-0"
+          aria-label={`${site.name} home`}
+        >
+          <span className="font-serif text-[18px] sm:text-[20px] md:text-[22px] font-medium text-ink-900 truncate">
             {site.name}
           </span>
           <span className="hidden sm:block text-caption font-medium uppercase tracking-[0.08em] text-ink-500">
@@ -39,7 +43,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Primary">
           {nav.links.map((link) => (
             <Link
               key={link.href}
@@ -55,7 +59,7 @@ export function Nav() {
           <a
             href={telLink}
             onClick={() => track("phone_click", { location: "nav" })}
-            className="hidden md:inline-flex items-center gap-2 text-body text-ink-700 hover:text-ink-900 transition-colors"
+            className="hidden lg:inline-flex items-center gap-2 text-body text-ink-700 hover:text-ink-900 transition-colors"
           >
             <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
             {env.phoneDisplay}
@@ -63,12 +67,13 @@ export function Nav() {
           <WhatsAppButton
             location="nav"
             variant="icon"
-            className="md:hidden"
+            className="lg:hidden h-10 w-10 sm:h-11 sm:w-11"
             message={`Assalamu alaikum, I'd like to reserve a qurbaani for ${site.eidDateLabel}.`}
           />
           <Button
             asChild
-            size="md"
+            size="sm"
+            className="h-10 sm:h-11 sm:px-5 sm:text-body"
             onClick={() => track("cta_reserve_click", { location: "nav" })}
           >
             <Link href="#pricing">Reserve</Link>

@@ -106,7 +106,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-cream-200/10">
-        <Container className="flex flex-col gap-3 py-6 text-body-sm text-cream-200/70 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-3 py-6 pb-24 text-body-sm text-cream-200/70 sm:flex-row sm:items-center sm:justify-between lg:pb-6">
           <p>
             © {site.hijriYear} / {site.gregorianYear} {site.name}.
           </p>

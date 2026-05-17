@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(rm -rf \"C:\\\\Projects\\\\ibrahimandismail-udhiya\\\\.next\")",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls -la \"C:\\\\Users\\\\delaw\\\\Downloads\" | grep -i \"two hands\\\\|parcel\\\\|meat\\\\|wooden\" 2>/dev/null | head -10)"
     ]
   }
 }

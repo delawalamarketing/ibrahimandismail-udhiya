@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { site } from "@/content/site";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -37,7 +38,7 @@ export default function PrivacyPage() {
               To request deletion of your information, email{" "}
               <a
                 className="underline-offset-4 hover:underline"
-                href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@ibrahimandismail.ca"}`}
+                href={`mailto:${env.contactEmail}`}
               >
                 our team
               </a>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -20,8 +21,8 @@ const subheadline =
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream-50">
-      <Container className="grid gap-12 pt-12 pb-20 md:pt-20 md:pb-28 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:pt-24 lg:pb-32">
-        <div className="flex flex-col gap-7 animate-fade-up">
+      <Container className="grid gap-8 pt-8 pb-14 sm:gap-10 sm:pt-12 sm:pb-16 md:grid-cols-[1.05fr_1fr] md:items-center md:gap-10 md:pt-16 md:pb-20 lg:gap-16 lg:pt-24 lg:pb-32">
+        <div className="flex flex-col gap-6 animate-fade-up sm:gap-7">
           <h1 className="font-serif text-display-xl font-normal text-ink-900 text-balance">
             {headline}
           </h1>
@@ -29,15 +30,16 @@ export function Hero() {
             {subheadline}
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-2">
             <Button
               asChild
               size="lg"
+              className="w-full sm:w-auto"
               onClick={() => track("cta_reserve_click", { location: "hero" })}
             >
               <Link href="#pricing">Reserve your qurbaani</Link>
             </Button>
-            <Button asChild size="lg" variant="link">
+            <Button asChild size="lg" variant="link" className="self-start sm:self-auto">
               <Link href="#how-it-works" className="group inline-flex items-center gap-2">
                 See how it works
                 <ArrowRight
@@ -61,24 +63,17 @@ export function Hero() {
   );
 }
 
-// PHOTO NEEDED: warm golden-hour shot of two hands — one elder, one younger —
-// placing wrapped meat into a brown paper bag on a wooden surface. Shallow
-// depth of field. No faces. 4:3 desktop, 4:5 mobile. Avoid blood or knives.
 function HeroVisual() {
   return (
-    <div className="relative w-full overflow-hidden rounded-lg bg-cream-100 shadow-md aspect-[4/5] lg:aspect-[4/3]">
-      <div
-        className="absolute inset-0 grid place-items-center text-center px-8"
-        aria-hidden="true"
-      >
-        <div className="space-y-2 text-ink-500">
-          <p className="text-caption font-medium uppercase tracking-[0.08em]">Photo needed</p>
-          <p className="text-body-sm max-w-[40ch] mx-auto">
-            Two hands passing a wrapped parcel of meat across a wooden surface, golden hour
-            light. No faces, no visible blood. See implementation plan §3.2.
-          </p>
-        </div>
-      </div>
+    <div className="relative w-full overflow-hidden rounded-lg bg-cream-100 shadow-md aspect-[4/3] sm:aspect-[3/2] md:aspect-[4/5] lg:aspect-[4/3]">
+      <Image
+        src="/images/hero-hands-parcel.png"
+        alt="Two hands passing a wrapped parcel of meat across a wooden surface, golden hour light."
+        fill
+        priority
+        sizes="(min-width: 1024px) 560px, (min-width: 768px) 45vw, 100vw"
+        className="object-cover"
+      />
     </div>
   );
 }

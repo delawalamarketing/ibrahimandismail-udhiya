@@ -23,12 +23,12 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:gap-7 lg:items-stretch">
+        <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:gap-7 lg:items-stretch">
           {tiers.map((tier) => (
             <article
               key={tier.id}
               className={cn(
-                "relative flex flex-col rounded-lg bg-white p-7 sm:p-8 shadow-sm",
+                "relative flex flex-col rounded-lg bg-white p-6 sm:p-7 lg:p-8 shadow-sm",
                 tier.highlighted
                   ? "border-2 border-accent-500 lg:scale-[1.02] lg:-translate-y-1 shadow-md"
                   : "border border-ink-100",

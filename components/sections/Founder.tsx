@@ -5,8 +5,8 @@ export function Founder() {
   return (
     <Section surface="cream" spacing="default">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16 lg:items-center">
-          <div className="flex flex-col gap-6 order-2 lg:order-1">
+        <div className="grid gap-10 md:grid-cols-[3fr_2fr] md:gap-12 md:items-center lg:gap-16">
+          <div className="flex flex-col gap-6 order-2 md:order-1">
             <h2 className="font-serif text-display-md font-normal text-ink-900 text-balance">
               Why we started Ibrahim and Ismail.
             </h2>
@@ -29,7 +29,7 @@ export function Founder() {
           {/* PHOTO NEEDED: environmental portrait of the real founder, warm
               natural light, looking slightly off-camera. At a farm, at home,
               or in a community space — not in a studio. Aspect 4:5. */}
-          <div className="relative aspect-[4/5] w-full max-w-[420px] mx-auto lg:mx-0 overflow-hidden rounded-lg bg-cream-100 shadow-md order-1 lg:order-2">
+          <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-[360px] md:max-w-none mx-auto md:mx-0 overflow-hidden rounded-lg bg-cream-100 shadow-md order-1 md:order-2">
             <div
               className="absolute inset-0 grid place-items-center text-center px-6"
               aria-hidden="true"

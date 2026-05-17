@@ -14,9 +14,9 @@ const surfaceClasses: Record<NonNullable<SectionProps["surface"]>, string> = {
 };
 
 const spacingClasses: Record<NonNullable<SectionProps["spacing"]>, string> = {
-  compact: "py-12 sm:py-16 lg:py-20",
-  default: "py-16 sm:py-20 lg:py-28",
-  loose: "py-20 sm:py-28 lg:py-32",
+  compact: "py-10 sm:py-14 lg:py-20",
+  default: "py-14 sm:py-20 lg:py-28",
+  loose: "py-16 sm:py-24 lg:py-32",
 };
 
 export function Section({

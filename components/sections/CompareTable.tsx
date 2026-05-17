@@ -63,8 +63,9 @@ export function CompareTable() {
           </h2>
         </div>
 
-        {/* Desktop table */}
-        <div className="hidden md:block mt-12 overflow-hidden rounded-lg border border-ink-100 bg-white shadow-sm">
+        {/* Desktop table — lg+ only. iPad portrait (md) gets the stacked
+            cards below, where 7 rows × 4 columns at 768px feels cramped. */}
+        <div className="hidden lg:block mt-12 overflow-hidden rounded-lg border border-ink-100 bg-white shadow-sm">
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="border-b border-ink-100">
@@ -103,8 +104,8 @@ export function CompareTable() {
           </table>
         </div>
 
-        {/* Mobile stacked cards */}
-        <div className="md:hidden mt-10 space-y-5">
+        {/* Stacked cards — phone and tablet portrait (below lg). */}
+        <div className="lg:hidden mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { label: "Overseas charity", key: "overseas" as const, highlight: false },
             { label: "Typical GTA farm", key: "gtaFarm" as const, highlight: false },
@@ -114,7 +115,7 @@ export function CompareTable() {
               key={col.label}
               className={`rounded-md border p-5 ${
                 col.highlight
-                  ? "border-primary-500 bg-cream-100"
+                  ? "border-primary-500 bg-cream-100 sm:col-span-2"
                   : "border-ink-100 bg-white"
               }`}
             >
