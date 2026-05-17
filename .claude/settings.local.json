@@ -5,7 +5,17 @@
       "Bash(rm -rf \"C:\\\\Projects\\\\ibrahimandismail-udhiya\\\\.next\")",
       "Bash(npm run *)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(ls -la \"C:\\\\Users\\\\delaw\\\\Downloads\" | grep -i \"two hands\\\\|parcel\\\\|meat\\\\|wooden\" 2>/dev/null | head -10)"
+      "Bash(ls -la \"C:\\\\Users\\\\delaw\\\\Downloads\" | grep -i \"two hands\\\\|parcel\\\\|meat\\\\|wooden\" 2>/dev/null | head -10)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh pr create --title 'Add subtle animations and visual polish' --body ' *)",
+      "PowerShell(Get-Command gh -ErrorAction SilentlyContinue)",
+      "PowerShell($paths = @\\(\"C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe\", \"C:\\\\Users\\\\delaw\\\\AppData\\\\Local\\\\GitHubCLI\\\\gh.exe\", \"C:\\\\Program Files \\(x86\\)\\\\GitHub CLI\\\\gh.exe\"\\); $paths | Where-Object { Test-Path $_ })",
+      "PowerShell($gh = Get-Command gh -ErrorAction SilentlyContinue; if \\($gh\\) { Write-Host \"FOUND: $\\($gh.Source\\)\" } else { Write-Host \"NOT FOUND\" })",
+      "Bash(git rev-list *)",
+      "PowerShell($candidates = @\\('gh','gh.exe','C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe','C:\\\\ProgramData\\\\chocolatey\\\\bin\\\\gh.exe',\"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\\\\gh.exe\",\"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\\\\gh.exe\"\\); $found = $candidates | ForEach-Object { try { $cmd = Get-Command $_ -ErrorAction Stop; $cmd.Source } catch { $null } } | Where-Object { $_ -and \\(Test-Path $_\\) } | Select-Object -First 1; if \\($found\\) { Write-Host \"FOUND: $found\"; & $found --version } else { Write-Host \"NOT FOUND in any candidate path\" })",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\('Path','Machine'\\) + ';' + [System.Environment]::GetEnvironmentVariable\\('Path','User'\\); if \\(Get-Command gh -ErrorAction SilentlyContinue\\) { Write-Host \"FOUND\" } else { Write-Host \"NOT FOUND\" })"
     ]
   }
 }
