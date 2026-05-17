@@ -76,10 +76,25 @@ const config: Config = {
         md: "0 4px 12px rgba(31, 27, 22, 0.06)",
         lg: "0 12px 32px rgba(31, 27, 22, 0.08)",
         cta: "0 6px 20px rgba(201, 123, 71, 0.18)",
+        "cta-hover": "0 8px 24px rgba(201, 123, 71, 0.24)",
+        "cta-bloom": "0 10px 28px rgba(201, 123, 71, 0.32)",
       },
       maxWidth: {
         prose: "65ch",
         narrow: "720px",
+      },
+      transitionDuration: {
+        "160": "160ms",
+        "220": "220ms",
+        "280": "280ms",
+        "320": "320ms",
+        "380": "380ms",
+        "480": "480ms",
+      },
+      transitionTimingFunction: {
+        warm: "cubic-bezier(0.32, 0.72, 0.36, 1)",
+        exit: "cubic-bezier(0.4, 0, 1, 1)",
+        spring: "cubic-bezier(0.34, 1.36, 0.64, 1)",
       },
       keyframes: {
         "accordion-down": {
@@ -94,11 +109,36 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(8px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "draw-line": {
+          from: { transform: "scaleX(0)" },
+          to: { transform: "scaleX(1)" },
+        },
+        "ken-burns": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.04)" },
+        },
+        "pulse-cta": {
+          "0%, 100%": { boxShadow: "0 6px 20px rgba(201, 123, 71, 0.18)" },
+          "50%": { boxShadow: "0 10px 28px rgba(201, 123, 71, 0.32)" },
+        },
+        "bloom-bg": {
+          from: { backgroundColor: "transparent" },
+          to: { backgroundColor: "#F5EFE6" },
+        },
+        "draw-check": {
+          from: { strokeDashoffset: "60" },
+          to: { strokeDashoffset: "0" },
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 200ms ease-out",
-        "accordion-up": "accordion-up 200ms ease-out",
-        "fade-up": "fade-up 400ms ease-out both",
+        "accordion-down": "accordion-down 220ms cubic-bezier(0.32, 0.72, 0.36, 1)",
+        "accordion-up": "accordion-up 220ms cubic-bezier(0.32, 0.72, 0.36, 1)",
+        "fade-up": "fade-up 480ms cubic-bezier(0.32, 0.72, 0.36, 1) both",
+        "draw-line": "draw-line 600ms cubic-bezier(0.32, 0.72, 0.36, 1) both",
+        "ken-burns": "ken-burns 14s cubic-bezier(0.32, 0.72, 0.36, 1) infinite",
+        "pulse-cta-once": "pulse-cta 1.8s cubic-bezier(0.32, 0.72, 0.36, 1) 1",
+        "bloom-bg-once": "bloom-bg 600ms cubic-bezier(0.32, 0.72, 0.36, 1) both",
+        "draw-check": "draw-check 400ms cubic-bezier(0.32, 0.72, 0.36, 1) both",
       },
     },
   },

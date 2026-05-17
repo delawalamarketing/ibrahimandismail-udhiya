@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { tiers } from "@/content/pricing";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
@@ -14,23 +15,28 @@ export function Pricing() {
   return (
     <Section id="pricing" surface="cream" spacing="default">
       <Container>
-        <div className="max-w-narrow">
+        <Reveal as="div" className="max-w-narrow">
           <h2 className="font-serif text-display-md font-normal text-ink-900 text-balance">
             Three ways to fulfill your qurbaani.
           </h2>
           <p className="mt-4 text-body-lg text-ink-700">
             Choose the experience. We handle the rest.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:gap-7 lg:items-stretch">
-          {tiers.map((tier) => (
-            <article
+          {tiers.map((tier, i) => (
+            <Reveal
               key={tier.id}
+              as="article"
+              delay={i * 100}
               className={cn(
-                "relative flex flex-col rounded-lg bg-white p-6 sm:p-7 lg:p-8 shadow-sm",
+                "group relative flex flex-col rounded-lg bg-white p-6 sm:p-7 lg:p-8 shadow-sm",
+                "transition-[transform,box-shadow] duration-220 ease-warm",
+                "hover:-translate-y-1 hover:shadow-lg",
+                "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
                 tier.highlighted
-                  ? "border-2 border-accent-500 lg:scale-[1.02] lg:-translate-y-1 shadow-md"
+                  ? "border-2 border-accent-500 lg:scale-[1.02] lg:-translate-y-1 shadow-md lg:hover:-translate-y-[12px]"
                   : "border border-ink-100",
               )}
             >
@@ -51,8 +57,12 @@ export function Pricing() {
               </header>
 
               <ul className="mt-7 space-y-3 flex-1">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-3 text-body text-ink-700">
+                {tier.features.map((feature, fi) => (
+                  <li
+                    key={feature}
+                    className="flex gap-3 text-body text-ink-700 animate-fade-up motion-reduce:animate-none"
+                    style={{ animationDelay: `${i * 100 + 300 + fi * 40}ms` }}
+                  >
                     <Check
                       className="h-5 w-5 shrink-0 text-primary-700 mt-0.5"
                       strokeWidth={1.75}
@@ -77,7 +87,7 @@ export function Pricing() {
                   <Link href={`/reserve?tier=${tier.id}`}>Reserve {tier.name}</Link>
                 </Button>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 

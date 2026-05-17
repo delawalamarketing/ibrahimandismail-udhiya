@@ -1,35 +1,68 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { env, telLink } from "@/lib/env";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
+import { cn } from "@/lib/utils";
 
 export function FinalCTA() {
+  // One single shadow pulse on the primary CTA when the section first scrolls
+  // into view. The page's single moment of earned emphasis at the close.
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const [pulse, setPulse] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPulse(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section surface="cream" spacing="loose">
       <Container size="narrow">
-        <div className="flex flex-col items-center text-center gap-6">
-          <h2 className="font-serif text-display-lg font-normal text-ink-900 text-balance">
-            Reserve your qurbaani for {site.eidDateLabel}.
-          </h2>
+        <div ref={sectionRef} className="flex flex-col items-center text-center gap-6">
+          <Reveal>
+            <h2 className="font-serif text-display-lg font-normal text-ink-900 text-balance">
+              Reserve your qurbaani for {site.eidDateLabel}.
+            </h2>
+          </Reveal>
           {/* [VERIFY] Replace with real capacity + historical sellout window once
               known. Until then this honest placeholder ships. */}
-          <p className="text-body-lg text-ink-700 max-w-[52ch] text-pretty">
+          <Reveal as="p" delay={120} className="text-body-lg text-ink-700 max-w-[52ch] text-pretty">
             Reservations open early and slots are limited by the farm&apos;s daily capacity.
             The earlier you reserve, the better your slot.
-          </p>
+          </Reveal>
 
-          <div className="mt-2 flex w-full max-w-[420px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-5">
+          <Reveal
+            as="div"
+            delay={240}
+            className="mt-2 flex w-full max-w-[420px] flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-5"
+          >
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto"
+              className={cn(
+                "w-full sm:w-auto",
+                pulse && "animate-pulse-cta-once motion-reduce:animate-none",
+              )}
               onClick={() => track("cta_reserve_click", { location: "final" })}
             >
               <Link href="#pricing">Reserve your qurbaani</Link>
@@ -42,12 +75,12 @@ export function FinalCTA() {
             <a
               href={telLink}
               onClick={() => track("phone_click", { location: "final" })}
-              className="inline-flex items-center justify-center gap-2 h-11 text-body text-ink-700 hover:text-ink-900"
+              className="inline-flex items-center justify-center gap-2 h-11 text-body text-ink-700 hover:text-ink-900 transition-colors duration-160 ease-warm"
             >
               <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
               {env.phoneDisplay}
             </a>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </Section>

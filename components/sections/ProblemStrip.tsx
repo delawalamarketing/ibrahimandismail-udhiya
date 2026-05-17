@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { PhoneOff, Globe, Eye } from "lucide-react";
 
 const cards = [
@@ -25,19 +26,21 @@ export function ProblemStrip() {
     <Section surface="cream" spacing="compact">
       <Container>
         <div className="grid gap-5 md:grid-cols-3 md:gap-6">
-          {cards.map((card) => (
-            <article
+          {cards.map((card, i) => (
+            <Reveal
               key={card.heading}
-              className="flex flex-col gap-4 rounded-md border border-ink-100 bg-white p-7 shadow-sm"
+              as="article"
+              delay={i * 80}
+              className="group flex flex-col gap-4 rounded-md border border-ink-100 bg-white p-7 shadow-sm transition-[transform,box-shadow,border-color] duration-220 ease-warm hover:-translate-y-[2px] hover:border-primary-500 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <card.icon
-                className="h-7 w-7 text-primary-700"
+                className="h-7 w-7 text-primary-700 transition-transform duration-220 ease-warm group-hover:rotate-[-3deg] group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:transform-none"
                 strokeWidth={1.5}
                 aria-hidden="true"
               />
               <h3 className="text-heading-md font-semibold text-ink-900">{card.heading}</h3>
               <p className="text-body text-ink-700">{card.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </Container>

@@ -40,9 +40,12 @@ export function StickyMobileCTA() {
       className={cn(
         "fixed inset-x-0 bottom-0 z-50 lg:hidden",
         "border-t border-ink-100 bg-cream-50/95 backdrop-blur",
-        "transition-transform duration-200",
+        "transition-transform motion-reduce:transition-none",
+        // Asymmetric easing: appear deliberately, leave efficiently.
+        visible
+          ? "translate-y-0 duration-280 ease-warm"
+          : "translate-y-full duration-200 ease-exit",
         "pb-[env(safe-area-inset-bottom)]",
-        visible ? "translate-y-0" : "translate-y-full",
       )}
     >
       <div className="mx-auto flex max-w-screen-sm items-center gap-3 px-4 py-3">

@@ -7,13 +7,11 @@ type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-accent-500 text-cream-50 shadow-cta hover:bg-accent-700 focus-visible:ring-accent-500",
+    "bg-accent-500 text-cream-50 shadow-cta hover:bg-accent-700 hover:shadow-cta-hover hover:-translate-y-[1px] focus-visible:ring-accent-500",
   secondary:
-    "bg-transparent text-primary-700 ring-1 ring-inset ring-primary-700 hover:bg-primary-100",
-  ghost:
-    "bg-transparent text-primary-700 hover:bg-primary-100",
-  link:
-    "bg-transparent text-primary-700 underline-offset-4 hover:underline px-0 py-0 shadow-none",
+    "bg-transparent text-primary-700 ring-1 ring-inset ring-primary-700 hover:bg-primary-100 hover:-translate-y-[1px]",
+  ghost: "bg-transparent text-primary-700 hover:bg-primary-100",
+  link: "bg-transparent text-primary-700 underline-offset-4 hover:underline hover:text-primary-900 px-0 py-0 shadow-none",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -38,8 +36,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-colors",
+          "inline-flex items-center justify-center gap-2 rounded-sm font-medium",
+          "transition-[transform,box-shadow,background-color,color] duration-160 ease-warm",
           "disabled:pointer-events-none disabled:opacity-50",
+          "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
           variantClasses[variant],
           variant !== "link" && sizeClasses[size],
           className,

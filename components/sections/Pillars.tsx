@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { Eye, Leaf, Wheat } from "lucide-react";
 
 const pillars = [
@@ -22,18 +23,22 @@ const pillars = [
 
 export function Pillars() {
   return (
-    <Section surface="white" spacing="default">
+    <Section surface="white" spacing="default" className="blend-from-cream">
       <Container>
-        <div className="max-w-narrow">
+        <Reveal as="div" className="max-w-narrow">
           <h2 className="font-serif text-display-md font-normal text-ink-900 text-balance">
             Three commitments we keep, every Eid.
           </h2>
-        </div>
+        </Reveal>
         <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12 lg:gap-16">
-          {pillars.map((pillar) => (
-            <div key={pillar.heading} className="flex flex-col gap-4">
+          {pillars.map((pillar, i) => (
+            <Reveal
+              key={pillar.heading}
+              delay={100 + i * 100}
+              className="group flex flex-col gap-4"
+            >
               <pillar.icon
-                className="h-12 w-12 text-primary-700"
+                className="h-12 w-12 text-primary-700 transition-transform duration-220 ease-warm group-hover:scale-[1.08] motion-reduce:transition-none motion-reduce:group-hover:transform-none"
                 strokeWidth={1.25}
                 aria-hidden="true"
               />
@@ -41,7 +46,7 @@ export function Pillars() {
                 {pillar.heading}
               </h3>
               <p className="text-body text-ink-700 max-w-[42ch]">{pillar.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>
