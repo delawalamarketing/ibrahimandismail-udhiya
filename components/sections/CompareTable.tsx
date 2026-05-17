@@ -15,46 +15,46 @@ type Row = {
 
 const rows: Row[] = [
   {
-    label: "Where the needy portion goes",
-    overseas: "Another country",
-    gtaFarm: "Returned to you to distribute",
-    ours: "GTA refugee family, with photo confirmation",
+    label: "Where the meat goes",
+    overseas: "Overseas",
+    gtaFarm: "You + assembly-line distribution",
+    ours: "You + a GTA refugee family",
   },
   {
-    label: "Your physical witness",
+    label: "Witnessing",
     overseas: "Not possible",
-    gtaFarm: "If you can take the day off",
-    ours: "Reserved slot in a family-safe viewing area, or HD video of your named sacrifice",
+    gtaFarm: "Restricted",
+    ours: "Reserved time slot, separate family area",
   },
   {
-    label: "Proof your intention was said",
-    overseas: "None",
-    gtaFarm: "None",
-    ours: "Recorded, named dhabihah video",
-  },
-  {
-    label: "Booking",
-    overseas: "Online",
-    gtaFarm: "Phone only, often unanswered",
-    ours: "Online in under three minutes",
-  },
-  {
-    label: "Animal sourcing",
-    overseas: "Varies by country",
-    gtaFarm: "Often unspecified",
-    ours: "Named Ontario farm, pasture-raised on Concierge tier",
-  },
-  {
-    label: "Eid-day customer experience",
-    overseas: "None — you are not there",
-    gtaFarm: "Wait outside in any weather",
-    ours: "Indoor waiting area, chai, scheduled time",
+    label: "Named dhabihah",
+    overseas: "Generic batch",
+    gtaFarm: "Generic batch",
+    ours: "Your name, with HD video proof",
   },
   {
     label: "Pricing transparency",
-    overseas: "Donation amount only",
-    gtaFarm: "Quoted on the phone",
-    ours: "Three tiers, posted publicly",
+    overseas: "Variable",
+    gtaFarm: "Phone-only quotes",
+    ours: "Clear three-tier online pricing",
+  },
+  {
+    label: "Same-day meat",
+    overseas: "N/A",
+    gtaFarm: "1–2 days after Eid",
+    ours: "Same-day delivery",
+  },
+  {
+    label: "1/3 needy portion",
+    overseas: "Overseas",
+    gtaFarm: "Unverified",
+    ours: "GTA family, with photo confirmation",
+  },
+  {
+    label: "Halal certification",
+    overseas: "Varies",
+    gtaFarm: "Often unclear",
+    ours: "HMA Canada (certified)",
   },
 ];
 

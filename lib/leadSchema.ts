@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const tierEnum = z.enum(["local", "witness", "concierge"]);
+export const tierEnum = z.enum(["standard", "deluxe"]);
 
 export const leadSchema = z.object({
   name: z.string().min(2, "Please enter your name.").max(100),

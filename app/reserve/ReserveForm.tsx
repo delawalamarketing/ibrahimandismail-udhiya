@@ -8,16 +8,17 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { leadSchema, type LeadInput } from "@/lib/leadSchema";
-import { tiers, type TierId } from "@/content/pricing";
+import { tiers, tierById, type TierId } from "@/content/pricing";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
+import { env } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
 type Props = {
   initialTier?: TierId;
 };
 
-export function ReserveForm({ initialTier = "witness" }: Props) {
+export function ReserveForm({ initialTier = "deluxe" }: Props) {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success">("idle");
   const reduceMotion = useReducedMotion();
 
@@ -35,13 +36,25 @@ export function ReserveForm({ initialTier = "witness" }: Props) {
 
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
+
+    // If the n8n webhook is configured, POST directly to it. Otherwise fall
+    // back to the built-in /api/lead route (Resend email + console log).
+    // n8n returns { success: true }; /api/lead returns { ok: true } — accept
+    // either as a successful booking.
+    const endpoint = env.n8nWebhookUrl || "/api/lead";
+
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Request failed");
+      const payload = (await res.json().catch(() => null)) as
+        | { success?: boolean; ok?: boolean }
+        | null;
+      const accepted = payload?.success === true || payload?.ok === true;
+      if (!accepted) throw new Error("Booking not confirmed by endpoint");
       track("lead_submit", { tier: data.tier });
       setStatus("success");
     } catch {
@@ -65,20 +78,67 @@ export function ReserveForm({ initialTier = "witness" }: Props) {
         >
           <div className="flex items-start gap-5">
             <SuccessCheck reduceMotion={Boolean(reduceMotion)} />
-            <div>
+            <div className="w-full">
               <h2 className="font-serif text-display-md font-normal text-ink-900">
                 Reservation received.
               </h2>
               <p className="mt-4 text-body-lg text-ink-700 max-w-[52ch]">
-                JazakAllah khair. We will reach out on WhatsApp within one business day to
-                confirm your slot and arrange pickup or delivery.
+                JazakAllah khair. To secure your animal and scheduled slot, please complete your payment of{" "}
+                <span className="font-semibold text-accent-500">
+                  {tierById(selectedTier).priceLabel}
+                </span>{" "}
+                using one of the secure methods below. We will confirm receipt on WhatsApp within one business day.
               </p>
-              <div className="mt-7 flex flex-wrap gap-4">
+
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <div className="rounded-md border border-ink-100 bg-cream-50 p-5 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif text-heading-md font-semibold text-ink-900">
+                      Option A: Interac e-Transfer
+                    </h3>
+                    <p className="mt-2 text-body-sm text-ink-700">
+                      Secure, direct, and preferred by many local families to avoid processing fees.
+                    </p>
+                    <dl className="mt-4 space-y-2 text-body-sm">
+                      <div className="flex justify-between border-b border-ink-100/50 pb-1">
+                        <dt className="text-ink-500">Send to:</dt>
+                        <dd className="font-semibold text-ink-900">hello@ibrahimandismail.com</dd>
+                      </div>
+                      <div className="flex justify-between border-b border-ink-100/50 pb-1">
+                        <dt className="text-ink-500">Amount:</dt>
+                        <dd className="font-semibold text-ink-900">
+                          {tierById(selectedTier).priceLabel}
+                        </dd>
+                      </div>
+                      <div className="flex justify-between">
+                        <dt className="text-ink-500">Note:</dt>
+                        <dd className="text-ink-900 text-right">Include your name & phone number</dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+
+                <div className="rounded-md border border-ink-100 bg-cream-50 p-5 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-serif text-heading-md font-semibold text-ink-900">
+                      Option B: Credit / Debit Card
+                    </h3>
+                    <p className="mt-2 text-body-sm text-ink-700">
+                      Pay securely online via credit card. A custom Stripe Checkout link will be generated for your request.
+                    </p>
+                    <p className="mt-4 text-body-sm italic text-ink-500">
+                      Our team will send a custom checkout link to your email and WhatsApp shortly.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-4">
                 <WhatsAppButton
                   location="reserve-success"
                   message={`Assalamu alaikum, I just reserved a ${selectedTier} qurbaani for ${site.eidDateLabel}.`}
                 >
-                  Open WhatsApp now
+                  Message us on WhatsApp
                 </WhatsAppButton>
               </div>
             </div>
@@ -97,7 +157,7 @@ export function ReserveForm({ initialTier = "witness" }: Props) {
         <legend className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500">
           Choose your tier
         </legend>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
           {tiers.map((tier) => (
             <label
               key={tier.id}

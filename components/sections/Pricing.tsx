@@ -17,14 +17,14 @@ export function Pricing() {
       <Container>
         <Reveal as="div" className="max-w-narrow">
           <h2 className="font-serif text-display-md font-normal text-ink-900 text-balance">
-            Three ways to fulfill your qurbaani.
+            Two ways to fulfill your qurbaani.
           </h2>
           <p className="mt-4 text-body-lg text-ink-700">
             Choose the experience. We handle the rest.
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:gap-7 lg:items-stretch">
+        <div className="mx-auto mt-10 grid max-w-[840px] gap-8 sm:mt-12 sm:gap-6 lg:grid-cols-2 lg:gap-8 lg:items-stretch">
           {tiers.map((tier, i) => (
             <Reveal
               key={tier.id}

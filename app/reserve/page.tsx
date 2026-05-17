@@ -6,6 +6,7 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { ReserveForm } from "./ReserveForm";
 import { tierEnum } from "@/lib/leadSchema";
+import { LEGACY_TIER_MAP, type TierId } from "@/content/pricing";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -21,8 +22,17 @@ export default function ReservePage({
 }: {
   searchParams: SearchParams;
 }) {
-  const parsed = tierEnum.safeParse(searchParams.tier);
-  const initialTier = parsed.success ? parsed.data : "witness";
+  // Resolve `?tier=` against the 2026 enum, then fall back to the legacy
+  // 2025 map so old links still land on a sensible tier. Default to Deluxe
+  // (the highlighted choice) when nothing matches.
+  const rawTier = searchParams.tier;
+  const parsed = tierEnum.safeParse(rawTier);
+  let initialTier: TierId = "deluxe";
+  if (parsed.success) {
+    initialTier = parsed.data;
+  } else if (rawTier && LEGACY_TIER_MAP[rawTier]) {
+    initialTier = LEGACY_TIER_MAP[rawTier];
+  }
 
   return (
     <>

@@ -13,10 +13,9 @@ export function localBusinessSchema() {
     email: env.contactEmail,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "[VERIFY: street address]",
-      addressLocality: "[VERIFY: city]",
+      streetAddress: "Barrie",
+      addressLocality: "Barrie",
       addressRegion: "ON",
-      postalCode: "[VERIFY: postal code]",
       addressCountry: "CA",
     },
     areaServed: site.serviceArea,

@@ -41,14 +41,12 @@ export function FinalCTA() {
         <div ref={sectionRef} className="flex flex-col items-center text-center gap-6">
           <Reveal>
             <h2 className="font-serif text-display-lg font-normal text-ink-900 text-balance">
-              Reserve your qurbaani for {site.eidDateLabel}.
+              Eid al-Adha begins Wednesday, May 27, 2026.
             </h2>
           </Reveal>
-          {/* [VERIFY] Replace with real capacity + historical sellout window once
-              known. Until then this honest placeholder ships. */}
           <Reveal as="p" delay={120} className="text-body-lg text-ink-700 max-w-[52ch] text-pretty">
-            Reservations open early and slots are limited by the farm&apos;s daily capacity.
-            The earlier you reserve, the better your slot.
+            Day 1 slots are limited and reserved for Deluxe bookings. Standard slots open
+            across Day 2 and Day 3. The earlier you reserve, the better the slot.
           </Reveal>
 
           <Reveal

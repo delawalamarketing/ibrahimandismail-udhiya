@@ -18,8 +18,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <p className="mt-4 text-body-sm text-ink-500">
-            [PLACEHOLDER] This stub exists so that footer links resolve. Replace with a
-            lawyer-reviewed terms of service before launch (see implementation plan §9).
+            Last updated: May 17, 2026
           </p>
           <div className="mt-8 space-y-4 text-body text-ink-700 max-w-prose">
             <p>
