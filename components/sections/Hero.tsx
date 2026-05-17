@@ -24,21 +24,21 @@ export function Hero() {
       <Container className="grid gap-8 pt-8 pb-14 sm:gap-10 sm:pt-12 sm:pb-16 md:grid-cols-[1.05fr_1fr] md:items-center md:gap-10 md:pt-16 md:pb-20 lg:gap-16 lg:pt-24 lg:pb-32">
         <div className="flex flex-col gap-6 sm:gap-7">
           <h1
-            className="font-serif text-display-xl font-normal text-ink-900 text-balance animate-fade-up motion-reduce:animate-none"
+            className="font-serif text-display-xl font-normal text-ink-900 text-balance animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
             style={{ animationDelay: "0ms" }}
           >
             {headline}
           </h1>
           <p
-            className="text-body-lg text-ink-700 text-pretty max-w-[52ch] animate-fade-up motion-reduce:animate-none"
-            style={{ animationDelay: "80ms" }}
+            className="text-body-lg text-ink-700 text-pretty max-w-[52ch] animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
+            style={{ animationDelay: "40ms" }}
           >
             {subheadline}
           </p>
 
           <div
-            className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-2 animate-fade-up motion-reduce:animate-none"
-            style={{ animationDelay: "160ms" }}
+            className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-2 animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
+            style={{ animationDelay: "100ms" }}
           >
             <Button
               asChild
@@ -61,8 +61,8 @@ export function Hero() {
           </div>
 
           <p
-            className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500 animate-fade-up motion-reduce:animate-none"
-            style={{ animationDelay: "240ms" }}
+            className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500 animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
+            style={{ animationDelay: "160ms" }}
           >
             Licensed Ontario abattoir <span aria-hidden="true">·</span> Halal certified{" "}
             <span aria-hidden="true">·</span> Local 1/3 distribution
@@ -78,8 +78,8 @@ export function Hero() {
 function HeroVisual() {
   return (
     <div
-      className="relative w-full overflow-hidden rounded-lg bg-cream-100 shadow-md aspect-[4/3] sm:aspect-[3/2] md:aspect-[4/5] lg:aspect-[4/3] animate-fade-up motion-reduce:animate-none"
-      style={{ animationDelay: "120ms" }}
+      className="group relative w-full overflow-hidden rounded-lg bg-cream-100 shadow-md aspect-[4/3] sm:aspect-[3/2] md:aspect-[4/5] lg:aspect-[4/3] animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
+      style={{ animationDelay: "80ms" }}
     >
       <Image
         src="/images/hero-hands-parcel.png"
@@ -89,7 +89,7 @@ function HeroVisual() {
         sizes="(min-width: 1024px) 560px, (min-width: 768px) 45vw, 100vw"
         placeholder="blur"
         blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AKgAH//Z"
-        className="object-cover"
+        className="object-cover transition-transform duration-480 ease-warm group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:transform-none"
       />
     </div>
   );

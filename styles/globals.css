@@ -100,8 +100,10 @@
     width: 100%;
   }
 
-  /* Grain overlay — fixed full-viewport noise texture, hidden under reduced
-     motion out of an abundance of caution. */
+  /* Grain overlay — fixed full-viewport noise texture. Dropped mix-blend-mode
+     (a known perf killer because it forces an offscreen composite of every
+     layer underneath on each frame) in favor of plain low-opacity blending.
+     Hidden under reduced motion. */
   .grain-overlay {
     position: fixed;
     inset: 0;
@@ -109,8 +111,7 @@
     z-index: 100;
     background-image: url("/grain.svg");
     background-repeat: repeat;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
+    opacity: 0.04;
   }
   @media (prefers-reduced-motion: reduce) {
     .grain-overlay {

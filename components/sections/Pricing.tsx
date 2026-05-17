@@ -47,10 +47,10 @@ export function Pricing() {
               )}
 
               <header className="space-y-3">
-                <h3 className="font-serif text-heading-lg font-medium text-ink-900">
+                <h3 className="font-serif text-heading-lg font-medium text-ink-900 transition-colors duration-220 ease-warm group-hover:text-primary-700">
                   {tier.name}
                 </h3>
-                <p className="font-serif text-display-md font-medium text-ink-900">
+                <p className="font-serif text-display-md font-medium text-ink-900 transition-colors duration-220 ease-warm group-hover:text-accent-500">
                   {tier.priceLabel}
                 </p>
                 <p className="text-body text-ink-700 max-w-[34ch]">{tier.promise}</p>

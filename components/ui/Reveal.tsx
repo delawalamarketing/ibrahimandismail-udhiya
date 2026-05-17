@@ -14,9 +14,32 @@ type Props = {
   "aria-hidden"?: boolean | "true" | "false";
 };
 
-// Scroll-triggered fade-up wrapper. On first viewport intersection, the
-// element fades in and slides up 8px. The observer disconnects after the
-// first reveal so the element never re-animates.
+// Single shared IntersectionObserver for every <Reveal> on the page.
+// Cheaper than spinning up an observer per element (was 87+ instances).
+type Cb = () => void;
+const callbacks = new WeakMap<Element, Cb>();
+let sharedObserver: IntersectionObserver | null = null;
+
+function getObserver(): IntersectionObserver {
+  if (sharedObserver) return sharedObserver;
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const cb = callbacks.get(entry.target);
+          if (cb) {
+            cb();
+            callbacks.delete(entry.target);
+            sharedObserver!.unobserve(entry.target);
+          }
+        }
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+  return sharedObserver;
+}
+
 export function Reveal({
   children,
   delay = 0,
@@ -30,17 +53,13 @@ export function Reveal({
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const obs = getObserver();
+    callbacks.set(el, () => setVisible(true));
+    obs.observe(el);
+    return () => {
+      callbacks.delete(el);
+      obs.unobserve(el);
+    };
   }, []);
 
   return React.createElement(
@@ -48,13 +67,13 @@ export function Reveal({
     {
       ref: ref as React.RefObject<HTMLElement>,
       className: cn(
-        "transition-all duration-480 ease-warm motion-reduce:transition-none",
+        "transition-[opacity,transform] duration-320 ease-warm motion-reduce:transition-none",
         visible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-2 motion-reduce:opacity-100 motion-reduce:translate-y-0",
         className,
       ),
-      style: { transitionDelay: `${delay}ms` },
+      style: { transitionDelay: `${delay}ms`, willChange: visible ? "auto" : "opacity, transform" },
       ...rest,
     },
     children,

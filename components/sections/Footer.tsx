@@ -34,7 +34,7 @@ export function Footer() {
               <a
                 href={telLink}
                 onClick={() => track("phone_click", { location: "footer" })}
-                className="inline-flex items-center gap-3 hover:text-cream-50 transition-colors"
+                className="inline-flex items-center gap-3 text-cream-100 hover:text-cream-50 transition-colors duration-160 ease-warm"
               >
                 <Phone className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 {env.phoneDisplay}
@@ -46,7 +46,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("whatsapp_click", { location: "footer" })}
-                className="inline-flex items-center gap-3 hover:text-cream-50 transition-colors"
+                className="inline-flex items-center gap-3 text-cream-100 hover:text-cream-50 transition-colors duration-160 ease-warm"
               >
                 <MessageCircle className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 WhatsApp
@@ -55,7 +55,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${env.contactEmail}`}
-                className="inline-flex items-center gap-3 hover:text-cream-50 transition-colors"
+                className="inline-flex items-center gap-3 text-cream-100 hover:text-cream-50 transition-colors duration-160 ease-warm"
               >
                 <Mail className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 {env.contactEmail}
@@ -85,7 +85,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="hover:text-cream-50 transition-colors"
+                  className="text-cream-100 hover:text-cream-50 transition-colors duration-160 ease-warm relative inline-block after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-cream-50 after:transition-[width] after:duration-220 after:ease-warm hover:after:w-full motion-reduce:after:transition-none"
                 >
                   {link.label}
                 </Link>

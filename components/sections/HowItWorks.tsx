@@ -47,14 +47,19 @@ export function HowItWorks() {
 
           <ol className="relative grid gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-4 lg:gap-8">
             {steps.map((step, i) => (
-              <Reveal key={step.n} as="li" delay={i * 80} className="flex flex-col gap-3">
+              <Reveal
+                key={step.n}
+                as="li"
+                delay={i * 80}
+                className="group flex flex-col gap-3"
+              >
                 <span
-                  className="font-serif text-[48px] leading-none font-normal text-accent-500 bg-white pr-3 inline-block"
+                  className="font-serif text-[48px] leading-none font-normal text-accent-500 bg-white pr-3 inline-block transition-colors duration-220 ease-warm group-hover:text-accent-700"
                   aria-hidden="true"
                 >
                   {String(step.n).padStart(2, "0")}
                 </span>
-                <h3 className="font-serif text-heading-lg font-medium text-ink-900">
+                <h3 className="font-serif text-heading-lg font-medium text-ink-900 transition-colors duration-220 ease-warm group-hover:text-primary-700">
                   {step.heading}
                 </h3>
                 <p className="text-body text-ink-700">{step.body}</p>
