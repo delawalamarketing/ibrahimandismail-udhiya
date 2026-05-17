@@ -11,6 +11,7 @@ import { leadSchema, type LeadInput } from "@/lib/leadSchema";
 import { tiers, tierById, type TierId } from "@/content/pricing";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
+import { env } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -35,13 +36,25 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
 
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
+
+    // If the n8n webhook is configured, POST directly to it. Otherwise fall
+    // back to the built-in /api/lead route (Resend email + console log).
+    // n8n returns { success: true }; /api/lead returns { ok: true } — accept
+    // either as a successful booking.
+    const endpoint = env.n8nWebhookUrl || "/api/lead";
+
     try {
-      const res = await fetch("/api/lead", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Request failed");
+      const payload = (await res.json().catch(() => null)) as
+        | { success?: boolean; ok?: boolean }
+        | null;
+      const accepted = payload?.success === true || payload?.ok === true;
+      if (!accepted) throw new Error("Booking not confirmed by endpoint");
       track("lead_submit", { tier: data.tier });
       setStatus("success");
     } catch {
