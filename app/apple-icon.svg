@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="36" fill="#2C4A3E"/>
+  <text
+    x="90"
+    y="120"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="100"
+    font-style="italic"
+    font-weight="400"
+    fill="#FBF7F0"
+    letter-spacing="-4"
+  >II</text>
+</svg>

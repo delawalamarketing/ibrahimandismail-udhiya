@@ -66,6 +66,58 @@
   .hairline {
     @apply border-ink-100;
   }
+
+  /* Section blend transitions — soften the boundary between adjacent sections
+     of differing colors by overlaying a vertical gradient at the top edge. */
+  .blend-from-cream {
+    background-color: white;
+    background-image: linear-gradient(to bottom, #FBF7F0 0px, white 80px);
+  }
+
+  .blend-from-white {
+    background-color: #FBF7F0;
+    background-image: linear-gradient(to bottom, white 0px, #FBF7F0 80px);
+  }
+
+  /* Underline-from-center for nav links. Pseudo-element kept layout-neutral
+     so hover never shifts adjacent text. */
+  .nav-underline {
+    position: relative;
+  }
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background-color: currentColor;
+    transform: translateX(-50%);
+    transition: width 160ms cubic-bezier(0.32, 0.72, 0.36, 1);
+  }
+  .nav-underline:hover::after,
+  .nav-underline[data-active="true"]::after {
+    width: 100%;
+  }
+
+  /* Grain overlay — fixed full-viewport noise texture. Dropped mix-blend-mode
+     (a known perf killer because it forces an offscreen composite of every
+     layer underneath on each frame) in favor of plain low-opacity blending.
+     Hidden under reduced motion. */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: url("/grain.svg");
+    background-repeat: repeat;
+    opacity: 0.04;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .grain-overlay {
+      display: none;
+    }
+  }
 }
 
 @layer utilities {

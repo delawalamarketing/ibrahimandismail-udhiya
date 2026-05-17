@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
+import { Grain } from "@/components/Grain";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { localBusinessSchema } from "@/lib/schema";
 import { env } from "@/lib/env";
 import { site } from "@/content/site";
@@ -59,7 +62,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <ScrollProgress />
         {children}
+        <Grain />
+        <Toaster
+          position="top-right"
+          theme="light"
+          richColors={false}
+          duration={6000}
+          toastOptions={{
+            classNames: {
+              toast:
+                "!bg-cream-50 !border !border-ink-100 !text-ink-900 !rounded-md !shadow-md !font-sans",
+              title: "!text-body !font-medium",
+              description: "!text-body-sm !text-ink-700",
+            },
+          }}
+        />
         <Analytics />
         <JsonLd data={localBusinessSchema()} />
       </body>

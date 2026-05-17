@@ -31,7 +31,10 @@ export function WhatsAppButton({
       aria-label="Message us on WhatsApp"
       onClick={() => track("whatsapp_click", { location })}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-sm font-medium transition-colors",
+        "inline-flex items-center justify-center gap-2 rounded-sm font-medium",
+        "transition-[transform,background-color,box-shadow] duration-160 ease-warm",
+        "motion-reduce:transition-none motion-reduce:hover:transform-none",
+        "hover:-translate-y-[1px] hover:shadow-md",
         variant === "icon"
           ? "h-11 w-11 bg-primary-700 text-cream-50 hover:bg-primary-900"
           : "h-11 px-5 text-body bg-primary-700 text-cream-50 hover:bg-primary-900",
