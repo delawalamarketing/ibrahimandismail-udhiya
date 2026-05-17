@@ -28,7 +28,7 @@ export function Footer() {
                 strokeWidth={1.5}
                 aria-hidden="true"
               />
-              <span>{site.abattoir.address}</span>
+              <span>{site.location}</span>
             </li>
             <li>
               <a
@@ -68,12 +68,9 @@ export function Footer() {
           <h3 className="text-caption font-medium uppercase tracking-[0.08em] text-cream-200/80">
             Certifications
           </h3>
-          <ul className="space-y-3 text-body">
-            <li>{site.certifyingBody}</li>
-            <li>OMAFRA-licensed abattoir: {site.abattoir.omafraLicense}</li>
-            <li>Insurance: [VERIFY: carrier]</li>
-          </ul>
-          {/* [PLACEHOLDER] Real halal certifying body logo, once licensed. */}
+          <p className="text-body text-cream-100 max-w-[36ch]">
+            All sacrifices performed at an <a href="https://hmacanada.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-cream-50">HMA-certified</a>, OMAFRA-licensed Ontario farm under provincial food-safety inspection.
+          </p>
         </section>
 
         <section className="space-y-4">
@@ -99,8 +96,7 @@ export function Footer() {
             About
           </h3>
           <p className="text-body text-pretty max-w-[36ch]">
-            A family-run qurbaani service for the {site.serviceArea}. Founded [VERIFY:
-            year].
+            A family-run qurbaani delivery service for the {site.serviceArea}. Founded 1447 AH / 2026 AD.
           </p>
         </section>
       </Container>
@@ -108,7 +104,7 @@ export function Footer() {
       <div className="border-t border-cream-200/10">
         <Container className="flex flex-col gap-3 py-6 pb-24 text-body-sm text-cream-200/70 sm:flex-row sm:items-center sm:justify-between lg:pb-6">
           <p>
-            © {site.hijriYear} / {site.gregorianYear} {site.name}.
+            © {site.hijriYear} AH / {site.gregorianYear} AD - {site.name} - All Rights Reserved.
           </p>
           <p className="font-serif italic text-cream-200/80">{site.tagline}</p>
         </Container>

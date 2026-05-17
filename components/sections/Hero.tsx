@@ -64,8 +64,7 @@ export function Hero() {
             className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500 animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
             style={{ animationDelay: "160ms" }}
           >
-            Licensed Ontario abattoir <span aria-hidden="true">·</span> Halal certified{" "}
-            <span aria-hidden="true">·</span> Local 1/3 distribution
+            HMA-certified halal <span aria-hidden="true">•</span> Hand-slaughter, no stunning <span aria-hidden="true">•</span> Founded by a Muslim family in Ontario <span aria-hidden="true">•</span> Same-day delivery across the GTA
           </p>
         </div>
 

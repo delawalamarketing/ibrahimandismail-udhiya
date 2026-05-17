@@ -51,14 +51,11 @@ export function LocalDistribution() {
                 also have a claim on it.
               </Reveal>
               <Reveal as="p" delay={240}>
-                On Concierge, we deliver your needy third directly to a GTA refugee family —
-                single mothers, recent arrivals, families between paycheques — through our
-                partnership with{" "}
-                <span className="text-cream-50 underline decoration-cream-200/40 decoration-1 underline-offset-4">
-                  [VERIFY: partner organization]
-                </span>
-                . We send you a photograph of the moment the meat is received. Your sadaqah
-                travels less than fifty kilometres, and you see where it lands.
+                On every order, we deliver your needy third directly to a GTA refugee family
+                — single mothers, recent arrivals, families between paycheques — through our
+                local charity partners. We send you a photograph of the moment the meat is
+                received. Your sadaqah travels less than fifty kilometres, and you see where
+                it lands.
               </Reveal>
             </div>
 
@@ -72,14 +69,11 @@ export function LocalDistribution() {
 
             <Reveal as="div" delay={420} className="pt-2">
               <Link
-                href="/reserve?tier=concierge"
-                onClick={() => {
-                  track("tier_selected", { tier: "concierge" });
-                  track("cta_reserve_click", { location: "local-distribution" });
-                }}
+                href="#pricing"
+                onClick={() => track("cta_reserve_click", { location: "local-distribution" })}
                 className="group inline-flex items-center gap-2 text-body-lg text-cream-50 hover:text-cream-100 transition-colors duration-160 ease-warm"
               >
-                Reserve Concierge
+                See pricing
                 <ArrowRight
                   className="h-5 w-5 transition-transform duration-160 ease-warm group-hover:translate-x-1 motion-reduce:transition-none"
                   strokeWidth={1.5}

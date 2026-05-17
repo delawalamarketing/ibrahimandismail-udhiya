@@ -6,20 +6,15 @@ export const site = {
   tagline: "Qurbaani, witnessed.",
   shortDescription:
     "Reserve your qurbaani from a licensed Ontario farm. Witness your sacrifice, receive HD video, and have the needy portion delivered to a GTA refugee family — with photo proof.",
-  // [VERIFY] Confirm Eid al-Adha 2026 Gregorian date with local masjid.
   eidDateLabel: "Eid al-Adha 2026",
-  eidDateLong: "on or about [VERIFY: confirm Hijri-calculated date with local masjid]",
-  // [VERIFY] Confirm partner abattoir address, hours, and license number.
-  abattoir: {
-    name: "[VERIFY: partner abattoir name]",
-    address: "[VERIFY: street address], Ontario",
-    omafraLicense: "[VERIFY: OMAFRA license number]",
-  },
-  certifyingBody: "[VERIFY: HMA / IFANCA / HFCC — confirm in writing]",
-  serviceArea: "Greater Toronto Area",
-  cities: ["Toronto", "Mississauga", "Brampton", "Markham", "Scarborough", "Etobicoke"],
+  eidDateLong: "Wednesday, May 27 through Friday, May 29, 2026 (subject to moon sighting)",
+  certifyingBody: "HMA Canada",
+  serviceArea: "Greater Toronto Area + Barrie corridor",
+  cities: ["Toronto", "Mississauga", "Brampton", "Markham", "Scarborough", "Etobicoke", "Barrie"],
   hijriYear: "1447",
   gregorianYear: "2026",
+  founder: "Rizwan",
+  location: "Barrie, ON",
 };
 
 export const nav = {
