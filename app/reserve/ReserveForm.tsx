@@ -37,11 +37,8 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
 
-    // If the n8n webhook is configured, POST directly to it. Otherwise fall
-    // back to the built-in /api/lead route (Resend email + console log).
-    // n8n returns { success: true }; /api/lead returns { ok: true } — accept
-    // either as a successful booking.
-    const endpoint = env.n8nWebhookUrl || "/api/lead";
+    const endpoint =
+      "https://n8n-o13i8ahea0x1mcsgwv1j7c4s.34.121.96.202.sslip.io/webhook/ibrahim-ismail-booking";
 
     try {
       const res = await fetch(endpoint, {
@@ -49,15 +46,21 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Request failed");
-      const payload = (await res.json().catch(() => null)) as
-        | { success?: boolean; ok?: boolean }
-        | null;
-      const accepted = payload?.success === true || payload?.ok === true;
-      if (!accepted) throw new Error("Booking not confirmed by endpoint");
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}: ${res.statusText || "Request failed"}`);
+      }
+      const payload = (await res.json()) as { success?: boolean; error?: string };
+      if (!payload || payload.success !== true) {
+        throw new Error(payload?.error || "Webhook did not return success: true");
+      }
       track("lead_submit", { tier: data.tier });
       setStatus("success");
-    } catch {
+    } catch (err) {
+      // Surface the real error in the console so the developer can see what
+      // failed (CORS, 404, network, n8n rejection). The user-facing toast
+      // stays friendly.
+      // eslint-disable-next-line no-console
+      console.error("[reserve] submit failed:", err, { endpoint });
       setStatus("idle");
       toast.error("Something went wrong sending your reservation.", {
         description:
