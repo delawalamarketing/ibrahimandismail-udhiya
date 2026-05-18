@@ -16,7 +16,7 @@ import { track } from "@/lib/analytics";
 const headline = "Your qurbaani, witnessed. Your intention, honored.";
 
 const subheadline =
-  "From a licensed Ontario farm to your table — and to a GTA refugee family who receives the needy portion, with photo confirmation.";
+  "From a licensed Ontario farm to your table.";
 
 export function Hero() {
   return (
@@ -64,7 +64,7 @@ export function Hero() {
             className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500 animate-fade-up motion-reduce:animate-none [animation-duration:320ms]"
             style={{ animationDelay: "160ms" }}
           >
-            HMA-certified halal <span aria-hidden="true">•</span> Hand-slaughter, no stunning <span aria-hidden="true">•</span> Founded by a Muslim family in Ontario <span aria-hidden="true">•</span> Same-day delivery across the GTA
+            HMA-certified halal <span aria-hidden="true">•</span> Hand-slaughter, no stunning <span aria-hidden="true">•</span> Founded by a Muslim brother in Ontario <span aria-hidden="true">•</span> Same-day delivery across the GTA
           </p>
         </div>
 

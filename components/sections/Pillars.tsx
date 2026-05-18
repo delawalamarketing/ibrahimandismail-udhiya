@@ -7,12 +7,12 @@ const pillars = [
   {
     icon: Eye,
     heading: "Witnessed",
-    body: "You — or a recorded HD video that includes your name and your intention — are present for the dhabihah. No anonymous ledger entries.",
+    body: "A recorded HD video that includes your name and your intention is provided for the dhabihah. No anonymous ledger entries.",
   },
   {
     icon: Leaf,
     heading: "Local",
-    body: "Animals are raised on licensed Ontario farms. The needy third stays in the GTA, delivered with photo confirmation to families who need it now.",
+    body: "Animals are raised on licensed Ontario farms. Donate the needy third to your choice of organization.",
   },
   {
     icon: Wheat,

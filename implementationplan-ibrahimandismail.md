@@ -262,7 +262,7 @@ event: 'faq_open'                 params: { question_id }
 Start with Variant A in production; rotate B and C as A/B tests in week two.
 
 **Subheadline (constant across variants):**
-> From a licensed Ontario farm to your table — and to a GTA refugee family who receives the needy portion, with photo confirmation.
+> From a licensed Ontario farm to your table.
 
 **Primary CTA:** *Reserve your qurbaani* (accent color, large) — anchors to `#pricing`.
 **Secondary CTA:** *See how it works* (text link with chevron) — anchors to `#how-it-works`.
@@ -289,7 +289,7 @@ Body: *Most GTA abattoirs only take bookings by phone — and only when someone 
 Body: *Major charities ship the needy portion overseas. There is barakah in that — and there is also need in your own city.*
 
 **Card 3 — Heading:** *No proof your name was said*
-Body: *When the dhabihah is performed without you present, you receive nothing more than a confirmation text. We think you deserve to see it.*
+Body: *When the dhabihah is performed without you present, you receive nothing more than a confirmation text. We think you deserve to witness it.*
 
 **Design notes:** Card heading in `heading-md` weight 600 ink-900. Body in `body` ink-700. Small thin-line icon at top-left of each card (no background fill). 32px padding inside cards.
 
@@ -301,11 +301,11 @@ Body: *When the dhabihah is performed without you present, you receive nothing m
 
 **Pillar 1 — Witnessed**
 Heading: *Witnessed*
-Body: *You — or a recorded HD video that includes your name and your intention — are present for the dhabihah. No anonymous ledger entries.*
+Body: *A recorded HD video that includes your name and your intention is provided for the dhabihah. No anonymous ledger entries.*
 
 **Pillar 2 — Local**
 Heading: *Local*
-Body: *Animals are raised on licensed Ontario farms. The needy third stays in the GTA, delivered with photo confirmation to families who need it now.*
+Body: *Animals are raised on licensed Ontario farms. Donate the needy third to your choice of organization.*
 
 **Pillar 3 — Tayyib**
 Heading: *Tayyib*
@@ -323,7 +323,7 @@ Body: *Beyond halal: pasture-raised, antibiotic-free animals from farms we visit
 
 | | Overseas charity | Typical GTA farm | **Ibrahim and Ismail** |
 |---|---|---|---|
-| Where the needy portion goes | Another country | Returned to you to distribute | **GTA refugee family, with photo confirmation** |
+| Where the needy portion goes | Another country | Returned to you to distribute | **where you choose to donate** |
 | Your physical witness | Not possible | If you can take the day off | **Reserved slot in a family-safe viewing area, or HD video of your named sacrifice** |
 | Proof your intention was said | None | None | **Recorded, named dhabihah video** |
 | Booking | Online | Phone only, often unanswered | **Online in under three minutes** |
@@ -396,7 +396,7 @@ Sub: *Pick your tier. Tell us pickup or delivery. Three minutes.*
 Sub: *We confirm your slot and answer questions in the channel you actually use.*
 
 **Step 3 — Witness or watch**
-Sub: *On Eid morning, come to the farm at your scheduled time — or receive the HD video of your named sacrifice within hours.*
+Sub: *On Eid morning, come to the farm at your scheduled time — or receive the HD video of your named sacrifice within hours (subject to availability due to government regulations).*
 
 **Step 4 — Meat home, donation delivered**
 Sub: *Vacuum-sealed cuts to your door. On Concierge, a photo of the needy portion in a GTA family's hands.*
@@ -584,11 +584,12 @@ Appears after the hero scrolls out of view (use IntersectionObserver on the hero
 
 ### 5.3 Lead Form Minimization
 
-**Phase 1 form fields (exactly four):**
+**Phase 1 form fields (exactly five):**
 1. Name (text, required)
 2. Phone (tel, required, validated for North American format)
 3. Email (email, required)
 4. Preferred package (radio: Local / Witness / Concierge — pre-filled if user came from a tier card)
+5. Animal choice (radio: Goat / Lamb)
 
 Pickup vs delivery, exact cuts, and any custom requests are handled in the WhatsApp follow-up. Do not let the form grow.
 

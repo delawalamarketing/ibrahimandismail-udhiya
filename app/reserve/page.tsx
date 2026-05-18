@@ -52,7 +52,7 @@ export default function ReservePage({
               Reserve your qurbaani.
             </h1>
             <p className="text-body-lg text-ink-700 max-w-[52ch]">
-              Four fields. We will confirm your slot on WhatsApp within one business day.
+              Five fields. We will confirm your slot on WhatsApp within one business day.
             </p>
           </header>
 

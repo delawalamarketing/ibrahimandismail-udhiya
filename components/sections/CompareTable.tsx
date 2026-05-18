@@ -18,25 +18,25 @@ const rows: Row[] = [
     label: "Where the meat goes",
     overseas: "Overseas",
     gtaFarm: "You + assembly-line distribution",
-    ours: "You + a GTA refugee family",
+    ours: "You + where you decide to donate",
   },
   {
     label: "Witnessing",
     overseas: "Not possible",
     gtaFarm: "Restricted",
-    ours: "Reserved time slot, separate family area",
+    ours: "Reserved time slot, separate family area (subject to availability)",
   },
   {
     label: "Named dhabihah",
     overseas: "Generic batch",
     gtaFarm: "Generic batch",
-    ours: "Your name, with HD video proof",
+    ours: "Your name, with HD video proof (subject to availability)",
   },
   {
     label: "Pricing transparency",
     overseas: "Variable",
     gtaFarm: "Phone-only quotes",
-    ours: "Clear three-tier online pricing",
+    ours: "Clear online pricing",
   },
   {
     label: "Same-day meat",
@@ -48,7 +48,7 @@ const rows: Row[] = [
     label: "1/3 needy portion",
     overseas: "Overseas",
     gtaFarm: "Unverified",
-    ours: "GTA family, with photo confirmation",
+    ours: "where you choose to donate",
   },
   {
     label: "Halal certification",

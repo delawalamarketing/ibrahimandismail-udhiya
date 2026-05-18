@@ -17,7 +17,7 @@ const cards = [
   {
     icon: Eye,
     heading: "No proof your name was said",
-    body: "When the dhabihah is performed without you present, you receive nothing more than a confirmation text. We think you deserve to see it.",
+    body: "When the dhabihah is performed without you present, you receive nothing more than a confirmation text. We think you deserve to witness it.",
   },
 ];
 

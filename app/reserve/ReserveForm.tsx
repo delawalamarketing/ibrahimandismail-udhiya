@@ -29,10 +29,11 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
     formState: { errors },
   } = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
-    defaultValues: { tier: initialTier, website: "" },
+    defaultValues: { tier: initialTier, animal: "goat", website: "" },
   });
 
   const selectedTier = watch("tier");
+  const selectedAnimal = watch("animal");
 
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
@@ -53,7 +54,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
       if (!payload || payload.success !== true) {
         throw new Error(payload?.error || "Webhook did not return success: true");
       }
-      track("lead_submit", { tier: data.tier });
+      track("lead_submit", { tier: data.tier, animal: data.animal });
       setStatus("success");
     } catch (err) {
       // Surface the real error in the console so the developer can see what
@@ -139,7 +140,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
               <div className="mt-8 flex flex-wrap gap-4">
                 <WhatsAppButton
                   location="reserve-success"
-                  message={`Assalamu alaikum, I just reserved a ${selectedTier} qurbaani for ${site.eidDateLabel}.`}
+                  message={`Assalamu alaikum, I just reserved a ${selectedTier} qurbaani (${selectedAnimal === "goat" ? "Goat" : "Lamb"}) for ${site.eidDateLabel}.`}
                 >
                   Message us on WhatsApp
                 </WhatsAppButton>
@@ -183,6 +184,40 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
                 {tier.name}
               </span>
               <span className="text-body text-ink-700">{tier.priceLabel}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="space-y-2 mt-8">
+        <legend className="text-caption font-medium uppercase tracking-[0.08em] text-ink-500">
+          Choose your animal
+        </legend>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {[
+            { id: "goat", name: "Goat" },
+            { id: "lamb", name: "Lamb" },
+          ].map((animal) => (
+            <label
+              key={animal.id}
+              className={cn(
+                "flex cursor-pointer flex-col gap-1 rounded-md border p-4",
+                "transition-[background-color,border-color,box-shadow] duration-220 ease-warm",
+                "motion-reduce:transition-none",
+                selectedAnimal === animal.id
+                  ? "border-accent-500 bg-cream-100 ring-1 ring-accent-500"
+                  : "border-ink-100 hover:border-primary-500 hover:bg-cream-50",
+              )}
+            >
+              <input
+                type="radio"
+                value={animal.id}
+                {...register("animal")}
+                className="sr-only"
+              />
+              <span className="font-serif text-heading-md font-medium text-ink-900">
+                {animal.name}
+              </span>
             </label>
           ))}
         </div>
