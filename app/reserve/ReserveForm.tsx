@@ -38,7 +38,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
     setStatus("submitting");
 
     const endpoint =
-      "https://n8n-o13i8ahea0x1mcsgwv1j7c4s.34.121.96.202.sslip.io/webhook-test/ibrahim-ismail-booking";
+      "https://n8n-o13i8ahea0x1mcsgwv1j7c4s.34.121.96.202.sslip.io/webhook/ibrahim-ismail-booking";
 
     try {
       const res = await fetch(endpoint, {
