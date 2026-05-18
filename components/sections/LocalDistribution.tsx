@@ -60,7 +60,7 @@ export function LocalDistribution() {
               delay={360}
               className="text-caption font-medium uppercase tracking-[0.08em] text-cream-200/80 pt-2"
             >
-              Built for the first Eid we serve. Numbers we can stand behind, soon.
+              Our founding year: Committed to full transparency and verifiable local impact.
             </Reveal>
 
             <Reveal as="div" delay={420} className="pt-2">

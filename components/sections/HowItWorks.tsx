@@ -11,17 +11,17 @@ const steps = [
   {
     n: 2,
     heading: "WhatsApp confirmation",
-    body: "We confirm your slot and answer questions in the channel you actually use.",
+    body: "We confirm your slot and answer questions in the channel you use.",
   },
   {
     n: 3,
     heading: "Witness or watch",
-    body: "On Eid morning, come to the farm at your scheduled time — or receive the HD video of your named sacrifice within hours (subject to availability due to government regulations).",
+    body: "On Eid morning, come to the farm at your scheduled time — or receive a video of your named sacrifice within hours (subject to availability due to regulations).",
   },
   {
     n: 4,
-    heading: "Meat home, donation delivered",
-    body: "Vacuum-sealed cuts to your door. On Concierge, a photo of the needy portion in a GTA family's hands.",
+    heading: "Meat delivered",
+    body: "Meat is vacuum-sealed and delivered to your door. On Deluxe, meat is delivered to your door on Eid Day 1. On Standard, meat is delivered on the same day or day after slaughter.",
   },
 ];
 
