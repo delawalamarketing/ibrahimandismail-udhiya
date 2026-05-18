@@ -63,7 +63,7 @@ Three tiers. Use exactly these prices and inclusions.
 - Custom cut to your specification (stew, chops, roast, boneless — you choose)
 - Vacuum-sealed, labelled, freezer-ready portions (each bag dated and weighed)
 - Free cold-chain home delivery anywhere in GTA
-- Your 1/3 needy portion delivered to a GTA refugee family, with photo confirmation back to you
+- Donate the needy third portion to your choice of organization
 - Priority Day 1 morning slot
 - Digital Qurbaani Certificate (halal verification + recipient family count)
 
@@ -141,7 +141,7 @@ All forms, FAQ content, and WhatsApp auto-replies in English. Live WhatsApp and 
 
 Place directly below the primary hero CTA:
 
-> **HMA-certified halal • Hand-slaughter, no stunning • Founded by a Muslim family in Ontario • Same-day delivery across the GTA**
+> **HMA-certified halal • Hand-slaughter, no stunning • Founded by a Muslim brother in Ontario • Same-day delivery across the GTA**
 
 ---
 
@@ -149,12 +149,12 @@ Place directly below the primary hero CTA:
 
 | | Overseas charity | Typical GTA farm | Ibrahim and Ismail |
 |---|---|---|---|
-| Where the meat goes | Overseas | You + assembly-line distribution | You + a GTA refugee family |
-| Witnessing | Not possible | Restricted | Reserved time slot, separate family area |
-| Named dhabihah | Generic batch | Generic batch | Your name, with HD video proof |
-| Pricing transparency | Variable | Phone-only quotes | Clear three-tier online pricing |
+| Where the meat goes | Overseas | You + assembly-line distribution | You + where you decide to donate |
+| Witnessing | Not possible | Restricted | Reserved time slot, separate family area (subject to availability) |
+| Named dhabihah | Generic batch | Generic batch | Your name, with HD video proof (subject to availability) |
+| Pricing transparency | Variable | Phone-only quotes | Clear online pricing |
 | Same-day meat | N/A | 1–2 days after Eid | Same-day delivery |
-| 1/3 needy portion | Overseas | Unverified | GTA family, with photo confirmation |
+| 1/3 needy portion | Overseas | Unverified | where you choose to donate |
 | Halal certification | Varies | Often unclear | HMA Canada (certified) |
 
 ---

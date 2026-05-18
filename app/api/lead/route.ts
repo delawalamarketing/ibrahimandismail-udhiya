@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, phone, email, tier, website } = parsed.data;
+  const { name, phone, email, tier, animal, website } = parsed.data;
   if (website) {
     // Honeypot tripped — silently succeed.
     return NextResponse.json({ ok: true });
@@ -37,6 +37,7 @@ export async function POST(req: Request) {
     `Phone:   ${phone}`,
     `Email:   ${email}`,
     `Tier:    ${tierData.name} (${tierData.priceLabel})`,
+    `Animal:  ${animal}`,
     ``,
     `Reply on WhatsApp or by phone to confirm the slot and arrange pickup/delivery.`,
   ].join("\n");

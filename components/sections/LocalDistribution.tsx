@@ -47,15 +47,11 @@ export function LocalDistribution() {
               <Reveal as="p" delay={120}>
                 The Quran asks us to feed the needy with one-third of our qurbaani. For
                 decades, that portion has crossed oceans. The intention is beautiful — and
-                the families breaking their fast in Mississauga, Scarborough, and Etobicoke
-                also have a claim on it.
+                you can also choose to keep it local or donate it to your choice of charity.
               </Reveal>
               <Reveal as="p" delay={240}>
-                On every order, we deliver your needy third directly to a GTA refugee family
-                — single mothers, recent arrivals, families between paycheques — through our
-                local charity partners. We send you a photograph of the moment the meat is
-                received. Your sadaqah travels less than fifty kilometres, and you see where
-                it lands.
+                On every order, you can choose to donate your needy third to your choice of
+                organization, ensuring your sadaqah goes exactly where you want it to help.
               </Reveal>
             </div>
 

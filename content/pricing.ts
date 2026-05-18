@@ -23,7 +23,7 @@ export const tiers: Tier[] = [
       "A complete qurbaani with your name and your chosen animal, on Day 2 or Day 3 of Eid.",
     features: [
       "Lamb or goat — your choice",
-      "You pick your animal (In-Person or Video Call)",
+      "You pick your animal (In-Person or Video Call) - In-Person is subject to availability",
       "Named dhabihah: your name and intention recited at slaughter",
       "Day 2 or Day 3 of Eid (request your preference)",
       "Butcher cut, food-grade packed",
@@ -34,8 +34,8 @@ export const tiers: Tier[] = [
   {
     id: "deluxe",
     name: "Deluxe",
-    price: 849,
-    priceLabel: "$849",
+    price: 749,
+    priceLabel: "$749",
     promise:
       "The earliest day, your animal, your name, and your cuts — delivered to your door.",
     highlighted: true,

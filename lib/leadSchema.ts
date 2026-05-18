@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const tierEnum = z.enum(["standard", "deluxe"]);
+export const animalEnum = z.enum(["goat", "lamb"]);
 
 export const leadSchema = z.object({
   name: z.string().min(2, "Please enter your name.").max(100),
@@ -11,6 +12,7 @@ export const leadSchema = z.object({
     .regex(/^[+()\-.\s\d]+$/, "Phone can only contain digits and + ( ) - . space."),
   email: z.string().email("Please enter a valid email address.").max(200),
   tier: tierEnum,
+  animal: animalEnum,
   // Honeypot — must be empty.
   website: z.string().max(0).optional().or(z.literal("")),
 });

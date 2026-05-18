@@ -16,7 +16,7 @@ const steps = [
   {
     n: 3,
     heading: "Witness or watch",
-    body: "On Eid morning, come to the farm at your scheduled time — or receive the HD video of your named sacrifice within hours.",
+    body: "On Eid morning, come to the farm at your scheduled time — or receive the HD video of your named sacrifice within hours (subject to availability due to government regulations).",
   },
   {
     n: 4,

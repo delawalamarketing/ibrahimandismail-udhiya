@@ -5,7 +5,7 @@ export const site = {
   name: "Ibrahim and Ismail",
   tagline: "Qurbaani, witnessed.",
   shortDescription:
-    "Reserve your qurbaani from a licensed Ontario farm. Witness your sacrifice, receive HD video, and have the needy portion delivered to a GTA refugee family — with photo proof.",
+    "Reserve your qurbaani from a licensed Ontario farm. Witness your sacrifice, receive HD video, and donate the needy portion to your choice of organization.",
   eidDateLabel: "Eid al-Adha 2026",
   eidDateLong: "Wednesday, May 27 through Friday, May 29, 2026 (subject to moon sighting)",
   certifyingBody: "HMA Canada",
