@@ -6,7 +6,7 @@ import { PhoneOff, Globe, Eye } from "lucide-react";
 const cards = [
   {
     icon: PhoneOff,
-    heading: "Phone trees and no-shows",
+    heading: "Endless redials & unanswered lines",
     body: "Most GTA abattoirs only take bookings by phone — and only when someone picks up. You shouldn't have to redial twenty times to fulfill an act of worship.",
   },
   {

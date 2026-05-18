@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/Button";
+import { Copy, Check } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { leadSchema, type LeadInput } from "@/lib/leadSchema";
 import { tiers, tierById, type TierId } from "@/content/pricing";
@@ -34,6 +35,14 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
 
   const selectedTier = watch("tier");
   const selectedAnimal = watch("animal");
+
+  const [copied, setCopied] = React.useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText("team.ibrahimandismail@gmail.com");
+    setCopied(true);
+    toast.success("Email copied to clipboard!");
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
@@ -78,9 +87,9 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
           initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.38, ease: [0.34, 1.36, 0.64, 1] }}
-          className="rounded-lg border border-primary-100 bg-white p-8 sm:p-10 shadow-sm"
+          className="rounded-lg border border-primary-100 bg-white p-5 sm:p-8 md:p-10 shadow-sm"
         >
-          <div className="flex items-start gap-5">
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
             <SuccessCheck reduceMotion={Boolean(reduceMotion)} />
             <div className="w-full">
               <h2 className="font-serif text-display-md font-normal text-ink-900">
@@ -95,7 +104,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
               </p>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="rounded-md border border-ink-100 bg-cream-50 p-5 flex flex-col justify-between">
+                <div className="rounded-md border border-ink-100 bg-cream-50 p-4 sm:p-5 flex flex-col justify-between">
                   <div>
                     <h3 className="font-serif text-heading-md font-semibold text-ink-900">
                       Option A: Interac e-Transfer
@@ -103,26 +112,42 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
                     <p className="mt-2 text-body-sm text-ink-700">
                       Secure, direct, and preferred by many local families to avoid processing fees.
                     </p>
-                    <dl className="mt-4 space-y-2 text-body-sm">
-                      <div className="flex justify-between border-b border-ink-100/50 pb-1">
+                    <dl className="mt-4 space-y-3 text-body-sm">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-ink-100/50 pb-2 sm:pb-1.5 gap-1">
                         <dt className="text-ink-500">Send to:</dt>
-                        <dd className="font-semibold text-ink-900">hello@ibrahimandismail.com</dd>
+                        <dd className="flex items-center gap-1.5 font-semibold text-ink-900 break-all select-all">
+                          <span>team.ibrahimandismail@gmail.com</span>
+                          <button
+                            type="button"
+                            onClick={handleCopy}
+                            aria-label="Copy email address"
+                            className="p-1 rounded-sm text-ink-400 hover:text-ink-900 hover:bg-ink-100/50 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-500 shrink-0"
+                          >
+                            {copied ? (
+                              <Check className="h-3.5 w-3.5 text-success" />
+                            ) : (
+                              <Copy className="h-3.5 w-3.5" />
+                            )}
+                          </button>
+                        </dd>
                       </div>
-                      <div className="flex justify-between border-b border-ink-100/50 pb-1">
+                      <div className="flex justify-between border-b border-ink-100/50 pb-1.5">
                         <dt className="text-ink-500">Amount:</dt>
                         <dd className="font-semibold text-ink-900">
                           {tierById(selectedTier).priceLabel}
                         </dd>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                         <dt className="text-ink-500">Note:</dt>
-                        <dd className="text-ink-900 text-right">Include your name & phone number</dd>
+                        <dd className="text-ink-900 text-left sm:text-right font-medium">
+                          Include your name & phone number
+                        </dd>
                       </div>
                     </dl>
                   </div>
                 </div>
 
-                <div className="rounded-md border border-ink-100 bg-cream-50 p-5 flex flex-col justify-between">
+                <div className="rounded-md border border-ink-100 bg-cream-50 p-4 sm:p-5 flex flex-col justify-between">
                   <div>
                     <h3 className="font-serif text-heading-md font-semibold text-ink-900">
                       Option B: Credit / Debit Card
@@ -275,7 +300,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
                   exit={reduceMotion ? undefined : { opacity: 0 }}
                   transition={{ duration: 0.16 }}
                 >
-                  {status === "submitting" ? "Sending…" : "Send my reservation"}
+                  {status === "submitting" ? "Sending…" : "Send my request"}
                 </motion.span>
               </AnimatePresence>
             </Button>

@@ -14,7 +14,7 @@
 | Business address (footer) | Barrie, ON |
 | Business structure | Sole proprietorship (Phase 1) |
 | Domain | ibrahimandismail.com |
-| Primary contact email | hello@ibrahimandismail.com |
+| Primary contact email | team.ibrahimandismail@gmail.com |
 | Operating year | 2026 (founding year) |
 | Service area | Greater Toronto Area + Barrie corridor |
 
@@ -117,7 +117,7 @@ All forms, FAQ content, and WhatsApp auto-replies in English. Live WhatsApp and 
 ## 7. Payment
 
 - **Phase 1 (launch):** Full payment upfront at time of booking
-- **Methods:** Stripe (credit/debit card) and e-transfer to hello@ibrahimandismail.com
+- **Methods:** Stripe (credit/debit card) and e-transfer to team.ibrahimandismail@gmail.com
 - E-transfer must be presented as a first-class option, equal in visual weight to card payment. Many South Asian Muslim families default to e-transfer and trust it more than card payments for high-ticket religious purchases.
 - **Refund policy:** Full refund up to 14 days before Eid. After that, refunds available only if Ibrahim and Ismail cannot fulfil the sacrifice.
 

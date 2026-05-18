@@ -30,7 +30,7 @@ export const faqs: Faq[] = [
     id: "payment-timing",
     question: "When is payment charged?",
     answer:
-      "Full payment is charged upfront at the time of booking to secure your animal and scheduled slot. We accept Interac e-transfer sent to hello@ibrahimandismail.com as well as secure credit and debit cards via Stripe online checkout.",
+      "Full payment is charged upfront at the time of booking to secure your animal and scheduled slot. We accept Interac e-transfer sent to team.ibrahimandismail@gmail.com as well as secure credit and debit cards via Stripe online checkout.",
   },
   {
     id: "cuts",
@@ -78,6 +78,6 @@ export const faqs: Faq[] = [
     id: "payment-methods",
     question: "How can I pay? Do you accept e-transfer?",
     answer:
-      "Yes, Interac e-transfer is accepted and preferred by many of our customers. Simply send your payment to hello@ibrahimandismail.com. We also accept secure credit and debit card payments online via Stripe. We do not accept cash on Eid day.",
+      "Yes, Interac e-transfer is accepted and preferred by many of our customers. Simply send your payment to team.ibrahimandismail@gmail.com. We also accept secure credit and debit card payments online via Stripe. We do not accept cash on Eid day.",
   },
 ];

@@ -422,7 +422,7 @@ Sub: *Vacuum-sealed cuts to your door. On Concierge, a photo of the needy portio
 **Stat callout (centered, beneath body):**
 > `[VERIFY: X lb of meat delivered to Y GTA families in [year] Eid al-Adha]`
 
-Until verified, do not display this callout. Replace with the line: *Built for the first Eid we serve. Numbers we can stand behind, soon.* This is more credible than a fabricated stat.
+Until verified, do not display this callout. Replace with the line: *Our founding year: Committed to full transparency and verifiable local impact.* This is more credible than a fabricated stat.
 
 **Photo:** `[PHOTO NEEDED: real moment of meat being received by a Canadian family in their home or at the door. Faces may be obscured for privacy if needed (shot from behind, hands only). Warm interior light. The mood is dignity, not pity — no staged sad expressions, no signage that identifies the recipient as a refugee.]`
 
@@ -537,7 +537,7 @@ Do not invent the numbers. If they are not yet known, replace with: *Reservation
 
 **Columns (4 on desktop, stacked on mobile):**
 
-1. **Contact** — partner abattoir address `[VERIFY]`, phone (click-to-call), WhatsApp (click-to-chat), email (`hello@ibrahimandismail.ca` or [VERIFY: real domain]).
+1. **Contact** — partner abattoir address `[VERIFY]`, phone (click-to-call), WhatsApp (click-to-chat), email (`team.ibrahimandismail@gmail.com`).
 2. **Certifications** — halal certifying body logo `[PLACEHOLDER]`, OMAFRA license number `[VERIFY]`, insurance carrier line `[VERIFY]`.
 3. **Policies** — Privacy, Terms, Refunds, Accessibility (links).
 4. **About** — short brand line: *A family-run qurbaani service for the Greater Toronto Area.* Founded `[VERIFY: year]`.

@@ -48,7 +48,7 @@ const rows: Row[] = [
     label: "1/3 needy portion",
     overseas: "Overseas",
     gtaFarm: "Unverified",
-    ours: "where you choose to donate",
+    ours: "Where you choose to donate",
   },
   {
     label: "Halal certification",
@@ -176,9 +176,8 @@ export function CompareTable() {
               )}
             >
               <h3
-                className={`text-heading-md font-semibold ${
-                  col.highlight ? "text-primary-700" : "text-ink-700"
-                }`}
+                className={`text-heading-md font-semibold ${col.highlight ? "text-primary-700" : "text-ink-700"
+                  }`}
               >
                 {col.label}
               </h3>

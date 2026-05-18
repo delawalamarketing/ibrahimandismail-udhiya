@@ -155,7 +155,7 @@ Define a `@layer utilities` set in `globals.css` so any element can pick up thes
 
 - **Tier card selection** — when a tier is chosen, the card's border and background transition over 220 ms. The currently-selected card stays distinguished; the previously-selected card returns to default with the same duration.
 - **Input focus** — border color `ink-100 → primary-700` over 160 ms; no glow rings.
-- **Submit button loading state** — text crossfade `"Send my reservation" → "Sending…"` over 160 ms; button stays the same width (lock width before swap to prevent layout reflow).
+- **Submit button loading state** — text crossfade `"Send my request" → "Sending…"` over 160 ms; button stays the same width (lock width before swap to prevent layout reflow).
 - **Success state** — replaces the form with a confirmation card. Card enters with `scale(0.98 → 1) opacity(0 → 1)` over 380 ms using `ease-spring`. A small inline checkmark in `success` color draws via SVG `stroke-dasharray` over 400 ms after the card lands.
 - **Error state** — input border shifts to `error` over 160 ms; helper text fades in below.
 
