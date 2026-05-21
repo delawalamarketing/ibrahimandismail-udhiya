@@ -17,7 +17,7 @@ export const env = {
   contactEmail:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL || "team.ibrahimandismail@gmail.com",
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID || "",
-  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || "1486538146598198",
   // n8n booking webhook — when set, ReserveForm POSTs directly here instead
   // of /api/lead. Expected response shape: { success: true }.
   n8nWebhookUrl: process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "",

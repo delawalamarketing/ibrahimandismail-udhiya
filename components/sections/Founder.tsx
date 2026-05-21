@@ -19,7 +19,7 @@ export function Founder() {
               Most of my life, my qurbaani went home to India. Seven years ago my family moved to Barrie, and last Eid I decided I wanted to experience it here — to be part of it, not just send money overseas. So I booked locally. Honestly, it didn&apos;t go well. I never heard back when I had questions. I couldn&apos;t choose my animal. I felt like an order number. I started Ibrahim and Ismail to fix that — for myself, and for anyone who&apos;s felt the same. You&apos;ll know which animal is yours. You&apos;ll hear from us at every step. Your meat will reach you the same day. And your one-third will stay here in Canada, with a family who needs it.
             </p>
             <p className="font-serif text-heading-md text-ink-900">
-              — Rizwan, Barrie, ON
+              — Rizwan
             </p>
           </Reveal>
 
