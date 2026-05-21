@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import { Analytics } from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/JsonLd";
 import { Grain } from "@/components/Grain";
 import { ScrollProgress } from "@/components/ScrollProgress";
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <Analytics />
+        <VercelAnalytics />
         <JsonLd data={localBusinessSchema()} />
       </body>
     </html>
