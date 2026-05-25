@@ -36,6 +36,8 @@ export async function POST(req: Request) {
 
   if (n8nWebhookUrl) {
     try {
+      // eslint-disable-next-line no-console
+      console.info(`[lead] Forwarding to n8n webhook: ${n8nWebhookUrl}`);
       const response = await fetch(n8nWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -45,6 +47,9 @@ export async function POST(req: Request) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      // eslint-disable-next-line no-console
+      console.info(`[lead] Successfully forwarded to n8n webhook`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error("[lead] n8n webhook forwarding failed:", err);
