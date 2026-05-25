@@ -12,7 +12,6 @@ import { leadSchema, type LeadInput } from "@/lib/leadSchema";
 import { tiers, tierById, type TierId } from "@/content/pricing";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
-import { env } from "@/lib/env";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -47,8 +46,7 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
   const onSubmit = async (data: LeadInput) => {
     setStatus("submitting");
 
-    const endpoint =
-      "https://n8n-o13i8ahea0x1mcsgwv1j7c4s.34.121.96.202.sslip.io/webhook/ibrahim-ismail-booking";
+    const endpoint = "/api/lead";
 
     try {
       const res = await fetch(endpoint, {
@@ -57,18 +55,17 @@ export function ReserveForm({ initialTier = "deluxe" }: Props) {
         body: JSON.stringify(data),
       });
       if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: ${res.statusText || "Request failed"}`);
+        const errPayload = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(errPayload?.error || `HTTP ${res.status}: ${res.statusText || "Request failed"}`);
       }
-      const payload = (await res.json()) as { success?: boolean; error?: string };
-      if (!payload || payload.success !== true) {
-        throw new Error(payload?.error || "Webhook did not return success: true");
+      const payload = (await res.json()) as { ok?: boolean; error?: string };
+      if (!payload || payload.ok !== true) {
+        throw new Error(payload?.error || "Reservation API did not return ok: true");
       }
       track("lead_submit", { tier: data.tier, animal: data.animal });
       setStatus("success");
     } catch (err) {
-      // Surface the real error in the console so the developer can see what
-      // failed (CORS, 404, network, n8n rejection). The user-facing toast
-      // stays friendly.
+      // Surface the real error in the console so the developer can see what failed.
       // eslint-disable-next-line no-console
       console.error("[reserve] submit failed:", err, { endpoint });
       setStatus("idle");

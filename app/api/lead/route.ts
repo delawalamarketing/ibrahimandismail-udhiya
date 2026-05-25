@@ -28,6 +28,33 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  // Forward to n8n if configured (or fall back to the default webhook URL)
+  const n8nWebhookUrl =
+    process.env.N8N_WEBHOOK_URL ||
+    process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL ||
+    "https://n8n-o13i8ahea0x1mcsgwv1j7c4s.34.121.96.202.sslip.io/webhook/ibrahim-ismail-booking";
+
+  if (n8nWebhookUrl) {
+    try {
+      const response = await fetch(n8nWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(parsed.data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("[lead] n8n webhook forwarding failed:", err);
+      return NextResponse.json(
+        { error: "Something went wrong sending your reservation to n8n webhook." },
+        { status: 500 },
+      );
+    }
+  }
+
   const tierData = tierById(tier);
   const subject = `New qurbaani reservation — ${tierData.name} (${tierData.priceLabel})`;
   const body = [
